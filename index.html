@@ -290,15 +290,8 @@
         function startCamera() {
             html5QrCode = new Html5Qrcode("reader");
             // 読み取り範囲を少し広げて、ターゲット枠に入れやすくする
-            const config = { 
-                fps: 15, 
-                qrbox: { width: 250, height: 250 }, 
-                formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ],
-                videoConstraints: {
-                    width: { ideal: 1280 },
-                    height: { ideal: 720 }
-                }
-            };            
+            const config = { fps: 30, qrbox: { width: 300, height: 300 }, formatsToSupport: [ Html5QrcodeSupportedFormats.QR_CODE ] }; 
+            
             html5QrCode.start({ facingMode: "user" }, config, (decodedText) => {
                 if (isProcessing) return;
                 isProcessing = true;
